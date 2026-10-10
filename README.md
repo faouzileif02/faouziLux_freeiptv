@@ -1,38 +1,42 @@
-# IPTV Free Countries
+# Free IPTV Country Manager
 
-Petit gestionnaire PHP pour importer une playlist M3U/M3U8 **publique et autorisée**, détecter le pays de chaque chaîne et générer automatiquement une playlist par pays.
+![Free IPTV Country Manager](assets/freeiptv-banner.svg)
 
-## Fonctionnement
+**A lightweight PHP tool that organizes public and authorized M3U/M3U8 playlists by country.**
 
-1. Ouvrir `index.php`.
-2. Importer un fichier `.m3u/.m3u8` ou saisir l’URL d’une playlist.
-3. Le serveur lit `tvg-country`, puis `group-title` et le nom de la chaîne.
-4. Les chaînes sont dédupliquées.
-5. Les fichiers sont générés dans `countries/` : `fr.m3u`, `tn.m3u`, `lu.m3u`, etc.
-6. Les chaînes dont le pays n’est pas identifié vont dans `zz.m3u`.
+> Built for simple hosting environments such as Apache/Hostinger. No database required.
 
-## Hébergement
+## ✨ What it does
 
-Compatible avec PHP 8+ et un hébergement Apache/Hostinger classique.
+- Imports a public `.m3u` / `.m3u8` playlist or playlist URL.
+- Detects the country using `tvg-country`, then falls back to `group-title` and channel name.
+- Removes duplicate channels.
+- Generates one playlist per country.
+- Sends unidentified channels to `zz.m3u` for review.
+- Runs on **PHP 8+** with no database.
 
-Aucune base de données n’est nécessaire.
+## 🚀 Quick start
 
-## Source publique d’exemple
+1. Deploy the repository on a PHP 8+ server.
+2. Open `index.php`.
+3. Upload an authorized `.m3u/.m3u8` file or enter a playlist URL.
+4. Let the importer classify and deduplicate the channels.
+5. Retrieve the generated playlists from `countries/`.
 
-TDTChannels publie officiellement :
+## 🧭 Output example
 
-- https://www.tdtchannels.com/lists/tv.m3u8
-- https://www.tdtchannels.com/lists/tv.m3u
-
-TDTChannels indique que ses listes utilisent les émissions officielles des diffuseurs. La disponibilité d’un flux peut toutefois changer ou être soumise à géoblocage.
-
-## Important
-
-Ce projet n’accorde aucun droit sur les contenus audiovisuels. Utilisez uniquement des playlists et flux que vous avez le droit d’accéder, d’intégrer ou de redistribuer. « Gratuit à regarder » ne signifie pas nécessairement « libre de droits ».
-
-## Structure
-
+```text
+countries/
+├── fr.m3u
+├── tn.m3u
+├── lu.m3u
+├── de.m3u
+└── zz.m3u
 ```
+
+## 🧩 Project structure
+
+```text
 /
 ├── index.php
 ├── import.php
@@ -44,3 +48,28 @@ Ce projet n’accorde aucun droit sur les contenus audiovisuels. Utilisez unique
 ├── sources.txt
 └── .htaccess
 ```
+
+## 🌍 Public example source
+
+[TDTChannels](https://www.tdtchannels.com/) publishes official public channel lists, including:
+
+- `https://www.tdtchannels.com/lists/tv.m3u8`
+- `https://www.tdtchannels.com/lists/tv.m3u`
+
+Availability may change and some streams may be geoblocked.
+
+## ⚖️ Responsible use
+
+This project does **not** grant rights to audiovisual content. Use only playlists and streams that you are legally allowed to access, integrate, process or redistribute.
+
+“Free to watch” does not automatically mean “free to redistribute.”
+
+## 🛠️ Tech
+
+`PHP 8+` · `M3U/M3U8` · `Apache` · `No database`
+
+---
+
+### More projects
+
+Explore my AI and automation work in **[N8N Market AI / Faouzi AI Lab](https://github.com/faouzileif02/workflow-store)**.
